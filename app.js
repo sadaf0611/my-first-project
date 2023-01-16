@@ -31,10 +31,9 @@ console.log(items);
 console.log(items[1]);
 items[1].textContent='hello';
 items[1].style.fontWeight='bold'; 
-items[1].style.backgroundColor='yellow';
+items[3].style.backgroundColor='green';
 
 for(var i=0;i<items.length;i++)
 {
-    items[i].style.backgroundColor='pink'; 
-}
-items[2].style.backgroundColor='pink'; 
+    items[i].style.fontWeight='bold'; 
+} 
