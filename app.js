@@ -37,3 +37,17 @@ for(var i=0;i<items.length;i++)
 {
     items[i].style.fontWeight='bold'; 
 } 
+
+//list li
+
+var items=document.getElementsByTagName("li");
+console.log(items);
+console.log(items[1]);
+li[1].textContent='hello';
+li[1].style.fontWeight='bold'; 
+li[3].style.backgroundColor='green';
+
+for(var i=0;i<li.length;i++)
+{
+    li[i].style.fontWeight='bold'; 
+} 
