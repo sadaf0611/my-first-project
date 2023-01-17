@@ -126,10 +126,11 @@ function addItem(e){
     e.preventDefault();
 
     var newItem=document.getElementById('item').value;
+    var newItem2=document.getElementById('itemDetails').value;
     var li=document.createElement('li');
     li.className='list-group-item';
     li.appendChild(document.createTextNode(newItem));
-
+    li.appendChild(document.createTextNode(newItem2));
     var addBtn=document.createElement('button');
     addBtn.className='btn btn-danger btn-sm float-right delete';
     addBtn.appendChild(document.createTextNode('X'));
