@@ -63,3 +63,53 @@ for(var i=0;i<odd.length;i++)
 {
     odd[i].style.backgroundColor='green'; 
 }
+// parent child nodes
+
+// var itemList = document.querySelector("#items");
+// console.log(itemList.parentNode);
+// itemList.parentNode.style.backgroundColor='#f4f4f4';
+// console.log(itemList.parentNode.parentNode.parentNode);
+
+// parent Element
+
+  var itemList = document.querySelector("#items");
+// console.log(itemList.parentElement);
+// itemList.parentNode.style.backgroundColor='#f4f4f4';
+// console.log(itemList.parentElement.parentElement.parentElement);
+
+//child node
+
+// console.log(itemList.childNodes);
+// console.log(itemList.children);
+// itemList.children[1].style.color='red';
+
+// // first child
+// console.log(itemList.firstChild);
+// console.log(itemList.firstElementChild);
+
+// itemList.lastElementChild.textContent='last element changed';
+
+// console.log(itemList.nextSibling);
+// console.log(itemList.nextElementSibling);
+
+// console.log(itemList.previousSibling);
+// console.log(itemList.previousElementSibling);
+// itemList.previousElementSibling.style.color='green';
+
+//create element
+
+var newDiv=document.createElement('div');
+newDiv.className='divDesign';
+newDiv.id='myDiv';
+newDiv.setAttribute('title','divTitle');
+var dtext=document.createTextNode('Hello');
+newDiv.appendChild(dtext);
+var container=document.querySelector('header .container');
+var h1=document.querySelector('header h1');
+
+newDiv.style.fontSize='40px';
+console.log(newDiv);
+container.insertBefore(newDiv,h1);
+
+parentNode=document.getElementById('items');
+parentNode.innerHTML='<li class="list-group-item">Hello</li>'+parentNode.innerHTML;
