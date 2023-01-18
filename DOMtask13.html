@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <title>Dom task 12</title>
+</head>
+<body>
+    <header class="bg-success text-white p-4 mb-3">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h1 id="header-title">Form</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="card card-body">
+            <form id="myForm">            
+                <input type="text" class="form-control mr-2" id="name" placeholder="Enetr Name...">
+                <input type="text" class="form-control mr-2" id="email" placeholder="Enetr Email id...">
+                <input type="text" class="form-control mr-2" id="ph" placeholder="Enetr Phone Number...">
+                <button type="submit" value="submit" id="submit">Submit</button>
+            </form>
+            <h2 class="title">Members details</h2>
+            <ul id="ul" class="list-group">
+
+            </ul>
+        </div>
+    </div>
+    
+    <ul id="ul">
+        <!-- <li id="li"></li> -->
+    </ul>
+    <h3 id="h3"></h3>
+    <script>
+        var form=document.getElementById('myForm');
+        const ul=document.getElementById('ul');
+        form.addEventListener('submit',display);
+        ul.addEventListener('click',removeItem);
+        function display(e)
+        {
+            e.preventDefault();
+            const name=document.getElementById('name').value;
+            const email=document.getElementById('email').value;
+            const ph=document.getElementById('ph').value;
+            var li=document.createElement('li');
+            li.className="list-group-item";
+            
+            // console.log(name+" "+email+" "+ph);
+            h3=document.getElementById('h3');
+            
+            var obj={
+                nm:name,
+                em:email,
+                phn:ph
+            }
+            var myObj_srialized=JSON.stringify(obj);
+            localStorage.setItem(email,myObj_srialized);
+            
+            var myObj_deSrialized=JSON.parse(localStorage.getItem(email));
+            //h3.innerHTML=myObj_deSrialized.nm+myObj_deSrialized.em +myObj_deSrialized.phn;
+            li.appendChild(document.createTextNode(obj.nm));
+            li.appendChild(document.createTextNode(obj.em));
+            li.appendChild(document.createTextNode(obj.phn));
+            const addBtn=document.createElement('button');
+            addBtn.className='btn btn-danger btn-sm float-right delete';
+            addBtn.appendChild(document.createTextNode('X'));
+            li.appendChild(addBtn);
+            ul.appendChild(li);
+        }
+        function removeItem(e){
+            if(e.target.classList.contains('delete'))
+            {
+                if(confirm('Are you sure?')){
+                var li=e.target.parentElement;
+                ul.removeChild(li);}
+            }
+        }
+        
+    </script>
+</body>
+</html>
