@@ -22,8 +22,11 @@
         {
             e.preventDefault();
             h2.innerHTML=input.value;
-            localStorage.setItem('ket to find',input.value);
+            localStorage.setItem('key to find',input.value);
+            h2.innerHTML=localStorage.getItem('key to find');
         }
+        //remove
+        //localStorage.remove('key to find');
     </script>
 </body>
     <!-- <script type="text/javascript">
