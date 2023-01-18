@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data storage</title> 
+</head>
+<body>
+    <form id="myForm">
+    <h3 style="color:pink;">Objct in  local storage.</h3>
+
+    <input type="text">
+    <button type="submit" value="submit">Submit</button>
+    <h2></h2>
+</form>
+    <script>
+        const input=document.querySelector('input');
+        const h2=document.querySelector('h2');
+        var btn=document.querySelector('submit');
+        const form=document.getElementById('myForm');
+        form.addEventListener('submit',display);
+
+        function display(e)
+        {
+            e.preventDefault();
+            h2.innerHTML=input.value;
+            localStorage.setItem('ket to find',input.value);
+        }
+    </script>
+</body>
+    <!-- <script type="text/javascript">
+        let myObj={
+            name:'Anam',
+            age:1
+        };
+        let myObj_srialized=JSON.stringify(myObj);
+        console.log(myObj_srialized);
+        localStorage.setItem('myObj',myObj_srialized);
+        console.log(localStorage);
+    </script> -->
+
+</html>
