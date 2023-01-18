@@ -137,6 +137,9 @@ function addItem(e){
     li.appendChild(addBtn);
 
     itemList.appendChild(li);
+    
+    // save data on local storage
+    localStorage.setItem(newItem,newItem2);
 }
 
 function removeItem(e)
