@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dom task 12</title>
+</head>
+<body>
+    <form id="myForm">
+        <label>Name : </label>
+        <input type="text" id="name">
+        <label>Email id : </label>
+        <input type="text" id="email">
+        <label>Phone No.:  </label>
+        <input type="text" id="ph">
+        <button type="submit" value="submit" id="submit">Submit</button>
+    </form>
+    <h3 id="h3"></h3>
+    <script>
+        var form=document.getElementById('myForm');
+        
+        form.addEventListener('submit',display);
+        
+        function display(e)
+        {
+            e.preventDefault();
+            const name=document.getElementById('name').value;
+            const email=document.getElementById('email').value;
+            const ph=document.getElementById('ph').value;
+            // console.log(name+" "+email+" "+ph);
+            h3=document.getElementById('h3');
+            
+            localStorage.setItem('name',name);
+            localStorage.setItem('email',email);
+            localStorage.setItem('ph',ph);
+
+            let m1=localStorage.getItem('name');
+            let m2=localStorage.getItem('email');
+            let m3=localStorage.getItem('ph');
+            h3.innerHTML=m1+m2+m3;
+            //console.log(myObj_deSrialized);
+        }
+        
+        
+    </script>
+</body>
+</html>
