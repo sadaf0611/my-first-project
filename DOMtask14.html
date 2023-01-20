@@ -41,6 +41,7 @@
         const ul=document.getElementById('ul');
         form.addEventListener('submit',display);
         ul.addEventListener('click',removeItem);
+        
         function display(e)
         {
             e.preventDefault();
@@ -74,9 +75,8 @@
             addBtnE.className='btn btn-success btn-sm float-right edit';
             addBtnE.style.marginRight='2px';
             addBtnE.appendChild(document.createTextNode('E'));
-            addBtnE.onclick(e) ->{
+            addBtnE.onclick = () =>{
                 localStorage.removeItem(obj.email);
-                var li=e.target.parentElement;
                 ul.removeChild(li);
                 document.getElementById('name').value=obj.nm;
                 document.getElementById('email').value=obj.em;
@@ -85,6 +85,9 @@
             li.appendChild(addBtnE);
 
             ul.appendChild(li);
+            name.createTextNode="";
+            email.createTextNode="";
+            ph.createTextNode="";
         }
         function removeItem(e){
             if(e.target.classList.contains('delete'))
@@ -95,10 +98,9 @@
             }
             // if(e.target.classList.contains('edit'))
             // {
-                
+            //     alert('hi');
             // }
         }
-        
     </script>
 </body>
 </html>
