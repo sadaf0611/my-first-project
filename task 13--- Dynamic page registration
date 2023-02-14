@@ -1,0 +1,271 @@
+Task details
+
+Watch this video
+
+https://www.youtube.com/watch?v=IGoAdn-e5II
+
+Deliverable
+
+Watch uptill the 18th min and write down the code as per the youtuber does both the pronises and asyn await
+Now create a new promise called getColdDrinks which come after husband gets butter. Integrate the code in both async and await and also promises' code
+------------------------------------------------------------------------------------------------------------------------------------------------------
+console.log('Person1: show ticket')
+
+console.log('Person2: show ticket')
+
+
+
+const preMovie = async() => 
+
+{
+
+  const promiseWifeBringingTicks = new Promise((resolve,reject)=>{
+
+    setTimeout(()=>resolve('ticket'),1000)
+
+  });
+
+   
+
+  const getPopcorn = new Promise((resolve,reject)=>resolve(` popcorn`));
+
+   
+
+  const getButter = new Promise((resolve,reject)=>resolve(` butter`));
+
+  const getColdDrinks = new Promise((resolve,reject)=>resolve(`cold drink`))
+
+  let ticket = await promiseWifeBringingTicks;
+
+   
+
+  console.log(`wife: I have ${ticket}`)
+
+  console.log('husband: we should go in');
+
+  console.log('wife:no i am hungry.');
+
+   
+
+  let popCorn= await getPopcorn;
+
+  console.log(`husband: I got some ${popCorn}`)
+
+  console.log('wife:I want butter on it.');
+
+   let butter=await getButter;
+
+  console.log(`Husband: take ${butter}`)
+  let colddrink = await getColdDrinks;
+
+  console.log(`Wife: I want cold drink`)
+
+  console.log(`Husband : Here is your ${colddrink}`)
+
+  return ticket;
+}
+preMovie().then((m)=>console.log(`Person3: show ${m}`))
+
+console.log('Person4: show ticket')
+
+console.log('Person5: show ticket')1` 
+
+ans4:---
+
+const users=[{nm:'Toy',dt:new Date().getTime()}]
+
+
+
+const code= async() =>{
+
+   
+
+   
+
+  const createU =new Promise((resolve,reject)=>{
+
+    setTimeout(()=>{
+
+      users.push({nm:'Joy',dt:new Date().getTime()})
+
+      resolve('created')
+
+    },1000)
+
+  })
+
+   
+
+  let cre =await createU;
+
+  const deleteU = new Promise((resolve, reject) =>{
+
+    users.pop()
+
+    resolve('deleted');
+
+  })
+
+  console.log(cre);
+
+  console.log(deleteU)
+
+  let show = new Promise((resolve , reject)=>{
+
+    setTimeout(()=>{
+
+       users.forEach((u)=> { 
+
+  console.log('User name: '+u.nm+' Last update : '+new Date().getTime()+' created at :'+u.dt)
+
+     
+
+    },0)
+
+    })
+
+  }) 
+
+  
+
+  let del=await show;
+
+  console.log(del);  
+
+}
+
+code()
+
+----------------------------------------------------------------------------------
+
+Why were promises discovered?
+[Favourite Interview Question] - Why were promises discovered?
+
+Why are async await better than promise.then design pattern? ? Explain with an example.
+
+Lets plan a trip together to Manali and understand promises. Watch this video XD.
+Write your own answer with an example
+
+
+
+
+function first()
+
+{
+
+  return new Promise((resolve, reject)=>{
+
+    setTimeout(()=>{
+
+      resolve('first') ;
+
+    },1000)
+
+  })
+
+   
+
+}
+
+function second()
+
+{
+
+ return new Promise((resolve, reject)=>{
+
+   setTimeout(()=>{
+
+    resolve('second') 
+
+  },1000)
+
+ })   
+
+   
+
+}
+
+function third()
+
+{
+
+  return new Promise((resolve, reject)=>{
+
+    setTimeout(()=>{
+
+     resolve('third')
+
+    },1000)
+
+  })
+
+   
+
+}
+
+function forth()
+
+{
+
+  return new Promise((resolve, reject)=>{
+
+    setTimeout(()=>{
+
+     resolve('forth') 
+
+    },1000)
+
+  })
+
+   
+
+}
+
+
+
+// first(second,third,forth)
+
+
+
+// first().then((msg)=>{
+
+//   console.log(msg)
+
+//   second().then((msg)=>{
+
+//     console.log(msg)
+
+//   })
+
+// })
+
+
+
+async function fun1()
+
+{
+
+  const f=await first()
+
+  console.log(f)
+
+  const s=await second()
+
+  console.log(s)
+
+  const t=await third();
+
+  console.log(t)
+
+  const fr=await forth()
+
+  console.log(fr)
+
+   
+
+}
+
+fun1();
+
+
+
