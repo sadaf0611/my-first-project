@@ -1,0 +1,127 @@
+const blogs =[];
+
+//Do not touch these functions below at all
+function create1stBlog() {
+    return new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            blogs.push({title: 'BLOG1'});
+            resolve();
+        }, 3000)
+    }) 
+}
+
+//Do not touch these functions below at all
+function create2ndBlog() {
+    return new Promise( (resolve, reject) => {
+        setTimeout( () => {
+            blogs.push({title: 'BLOG2'});
+            resolve()
+        }, 2000)
+    }) 
+}
+
+
+function deleteBlog(){
+   //complete this function such that it removes the last element from the blog Array and resolves the deleted blog in 1 second timeout
+   //If no blog present , it breaks the promise with ERROR (reject) in 1 second timeout
+    return new Promise((resolve, reject) => {
+        setTimeout( () => {
+            if(blogs.length > 0){
+                const poppedElement  = blogs.pop();
+                resolve(poppedElement);
+            } else {
+                reject("ERROR")
+            }
+        }, 1000)
+    })
+}
+
+              
+create1stBlog().then(()=>{
+    
+    create2ndBlog().then(()=>{
+           
+        deleteBlog().then((ele2)=>{
+            console.log(ele2.title)
+            
+            deleteBlog().then((ele1)=>{
+            console.log(ele1.title,)
+            
+                deleteBlog().catch((msg)=>
+                console.log(msg))
+            })
+        })
+    }) 
+})
+//------------------------------------------------------------------
+Promise.all --program
+const posts=[
+    {title:'one',body:'body one'},
+    {title:'two',body:'body two'}
+    ];
+function getPost(){
+    setTimeout(()=>{
+        let output='';
+        posts.forEach((post)=>{
+            console.log(post.title+" "+post.body);
+        })
+    },1000)
+}    
+
+function craetePost(post){
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+        posts.push(post);
+        
+        const error=true;
+        if(!error)
+            resolve();
+        else
+        reject("Error: something went wrong");
+    },1000)
+    })
+    
+}
+const pro1=Promise.resolve('hello world');
+const pro2=10;
+const pro3=new Promise((resolve,reject)=>
+setTimeout(resolve,2000,'Good Bye'))
+
+Promise.all([pro1,pro2,pro3]).then((value)=>console.log(value));
+
+//-------------------------------------------------------------------------
+
+system date - program
+
+var interval = null;
+const users = [
+    {name: 'Post One',
+     createdAt: new Date().getTime()
+    },
+    {name: 'Post Two',
+     createdAt: new Date().getTime()
+    }
+];
+function updateLastUserActivityTime ()
+{
+    return new Promise((resolve,reject)=>{
+        setTimeout(()=>{
+            const dt=new Date().getTime()
+            users.push({name:'Anam',createdAt:dt})
+            resolve();
+        },2000)
+    })
+}
+function show()
+{
+    clearInterval(interval);
+    interval = setTimeout(()=>{
+    users.forEach((obj)=>
+    console.log(obj.name+" "+obj.createdAt))
+})
+        
+    }
+updateLastUserActivityTime().then(show())
+// show()
+
+                 

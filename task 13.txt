@@ -1,0 +1,155 @@
+ans2:
+
+-----------------------
+
+console.log('Person1: show ticket')
+
+console.log('Person2: show ticket')
+
+
+
+const preMovie = async() => 
+
+{
+
+  const promiseWifeBringingTicks = new Promise((resolve,reject)=>{
+
+    setTimeout(()=>resolve('ticket'),1000)
+
+  });
+
+   
+
+  const getPopcorn = new Promise((resolve,reject)=>resolve(` popcorn`));
+
+   
+
+  const getButter = new Promise((resolve,reject)=>resolve(` butter`));
+
+  const getColdDrinks = new Promise((resolve,reject)=>resolve(`cold drink`))
+
+  let ticket = await promiseWifeBringingTicks;
+
+   
+
+  console.log(`wife: I have ${ticket}`)
+
+  console.log('husband: we should go in');
+
+  console.log('wife:no i am hungry.');
+
+   
+
+  let popCorn= await getPopcorn;
+
+  console.log(`husband: I got some ${popCorn}`)
+
+  console.log('wife:I want butter on it.');
+
+   
+
+  let butter=await getButter;
+
+   
+
+  console.log(`Husband: take ${butter}`)
+
+   
+
+  let colddrink = await getColdDrinks;
+
+  console.log(`Wife: I want cold drink`)
+
+  console.log(`Husband : Here is your ${colddrink}`)
+
+  return ticket;
+
+}
+
+
+
+preMovie().then((m)=>console.log(`Person3: show ${m}`))
+
+
+
+console.log('Person4: show ticket')
+
+console.log('Person5: show ticket')
+
+
+
+------------------------------------------------------------------------
+
+
+
+const users=[{nm:'Toy',dt:new Date().getTime()}]
+
+
+
+const code= async() =>{
+
+   
+
+   
+
+  const createU =new Promise((resolve,reject)=>{
+
+    setTimeout(()=>{
+
+      users.push({nm:'Joy',dt:new Date().getTime()})
+
+      resolve('created')
+
+    },1000)
+
+  })
+
+   
+
+  let cre =await createU;
+
+  const deleteU = new Promise((resolve, reject) =>{
+
+    users.pop()
+
+    resolve('deleted');
+
+  })
+
+  console.log(cre);
+
+  console.log(deleteU)
+
+  let show = new Promise((resolve , reject)=>{
+
+    setTimeout(()=>{
+
+       users.forEach((u)=> { 
+
+  console.log('User name: '+u.nm+' Last update : '+new Date().getTime()+' created at :'+u.dt)
+
+     
+
+    },0)
+
+    })
+
+  }) 
+
+  
+
+  let del=await show;
+
+  console.log(del);
+
+   
+
+   
+
+}
+
+
+
+code()
+
+----------------------------------------------------------------------------------

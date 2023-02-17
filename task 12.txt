@@ -1,0 +1,127 @@
+method 1:----------------------------
+
+const pro1=Promise.resolve('Before create user '+new Date().getTime())
+const pro2= new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        resolve('after create user '+new Date().getTime())
+    },2000)
+})
+
+Promise.all([pro1,pro2]).then((value)=>console.log(value))
+
+method 2:---------------------------------
+const users=[{name:'anam',dt:new Date().getTime()}]
+
+const pro1=Promise.resolve('Before create user '+users[0].name+users[0].dt)
+const pro2 = Promise.resolve('after create user '+new Date().getTime())
+
+Promise.all([pro1,pro2]).then((value)=>console.log(value))
+
+//----------task 13------------------------------------
+console.log()
+
+
+
+console.log('Person1: show ticket')
+console.log('Person2: show ticket')
+
+const preMovie = async() => 
+{
+    const promiseWifeBringingTicks = new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve('ticket'),1000)
+    });
+    
+    const getPopcorn = new Promise((resolve,reject)=>resolve(` popcorn`));
+    
+    const getButter = new Promise((resolve,reject)=>resolve(` butter`));
+    let ticket = await promiseWifeBringingTicks;
+    
+    console.log(`wife: I have ${ticket}`)
+    console.log('husband: we should go in');
+    console.log('wife:no i am hungry.');
+    
+    let popCorn= await getPopcorn;
+    console.log(`husband: I got some ${popCorn}`)
+    console.log('wife:I want butter on it.');
+    
+    let butter=await getButter;
+    
+    console.log(`Husband: take ${butter}`)
+    
+    return ticket;
+}
+
+preMovie().then((m)=>console.log(`Person3: show ${m}`))
+
+console.log('Person4: show ticket')
+console.log('Person5: show ticket')
+
+
+//-------------------------------------------------------------
+// Online Javascript Editor for free
+// Write, Edit and Run your Javascript code using JS Online Compiler
+async function dada(){
+try{
+
+const prms= await new Promise((resolve,reject)=>{
+    setTimeout(()=>{
+        var sal=100;
+        if(sal>1000){
+            resolve('We will go out for trip')
+        }
+        else if(sal===100){
+            reject(' We may plan for one day trip')}
+        else
+        {
+            reject('We can not go to trip')
+        }
+    },1000)
+})
+
+console.log(prms);
+}
+catch(msg){
+  console.log(msg);
+}
+}
+dada();
+//-----------------------------------------------
+console.log('Person1: show ticket')
+console.log('Person2: show ticket')
+
+const preMovie = async() => 
+{
+    const promiseWifeBringingTicks = new Promise((resolve,reject)=>{
+        setTimeout(()=>resolve('ticket'),1000)
+    });
+    
+    const getPopcorn = new Promise((resolve,reject)=>resolve(` popcorn`));
+    
+    const getButter = new Promise((resolve,reject)=>resolve(` butter`));
+    const getColdDrinks = new Promise((resolve,reject)=>resolve(`cold drink`))
+    let ticket = await promiseWifeBringingTicks;
+    
+    console.log(`wife: I have ${ticket}`)
+    console.log('husband: we should go in');
+    console.log('wife:no i am hungry.');
+    
+    let popCorn= await getPopcorn;
+    console.log(`husband: I got some ${popCorn}`)
+    console.log('wife:I want butter on it.');
+    
+    let butter=await getButter;
+    
+    console.log(`Husband: take ${butter}`)
+    
+    let colddrink = await getColdDrinks;
+    console.log(`Wife: I want cold drink`)
+    console.log(`Husband : Here is your ${colddrink}`)
+    return ticket;
+}
+
+preMovie().then((m)=>console.log(`Person3: show ${m}`))
+
+console.log('Person4: show ticket')
+console.log('Person5: show ticket')
+
+
