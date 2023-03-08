@@ -1,0 +1,56 @@
+<html>
+<head>
+<title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+    .input-style{
+      width: 50%;
+    }
+  </style>
+</head>
+  <body>
+    <div class="container p-5 my-5 bg-primary text-white">
+      <form id="my-form" class="form" style="border:2px solid white;text-align: center;">
+        <h2>Registration form</h2>
+        <label>Name :</label>
+        <input type="text" id="name" class="input-style"><br><br>
+        <label>Email :</label>
+        <input type="email" id="email" class="input-style"><br><br>
+        <label>Phone :</label>
+        <input type="number" id="phone" class="input-style"><br><br>
+        <button type="submit" id="submit" class="btn btn-danger">Submit</button><br><br>
+      </form>
+      <h3 id="h3"></h3>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
+      <script>
+        var form=document.getElementById('my-form');
+        form.addEventListener('submit',display)
+
+        function display(e)
+        {
+          e.preventDefault();
+          var name=document.getElementById('name').value;
+          var email=document.getElementById('email').value;
+          var phone=document.getElementById('phone').value;
+          const h3=document.getElementById('h3');
+
+          const obj={
+            name,
+            email,
+            phone
+          }
+          axios.post("https://crudcrud.com/api/80e2776820df4c4ca8fce506ad1fba5e")
+          .then((response)=>{
+            console.log(response) 
+          })
+          .catch((error){
+            console.log(error)
+          }) 
+        }
+      </script>
+    </div>
+  </body>
+</html>
