@@ -13,7 +13,7 @@
 </head>
   <body>
     <div class="container p-5 my-5 bg-primary text-white">
-      <form id="my-form" class="form" style="border:2px solid white;text-align: center;">
+      <form onsubmit="crudStorage(event)" id="my-form" class="form" style="border:2px solid white;text-align: center;">
         <h2>Registration form</h2>
         <label>Name :</label>
         <input type="text" id="name" class="input-style"><br><br>
@@ -26,27 +26,27 @@
       <h3 id="h3"></h3>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.3.4/axios.min.js"></script>
       <script>
-        var form=document.getElementById('my-form');
-        form.addEventListener('submit',display)
-
-        function display(e)
+        function crudStorage(event)
         {
-          e.preventDefault();
-          var name=document.getElementById('name').value;
+          event.preventDefault();
+          var name=event.target.name.value;
           var email=document.getElementById('email').value;
           var phone=document.getElementById('phone').value;
           const h3=document.getElementById('h3');
 
+
+          
           const obj={
             name,
             email,
             phone
           }
-          axios.post("https://crudcrud.com/api/80e2776820df4c4ca8fce506ad1fba5e")
+          console.log(name+' saved!');
+          axios.post("https://crudcrud.com/api/133315cfaef74b9a88bc1068b9d8fb4d/appointmentData",obj)
           .then((response)=>{
             console.log(response) 
           })
-          .catch((error){
+          .catch((error)=>{
             console.log(error)
           }) 
         }
